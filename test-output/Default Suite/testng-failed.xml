@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="TAF_nopCommerceDemo_v8(failed)">
+    <classes>
+      <class name="TestCases.TC01_AuthenticationTest">
+        <methods>
+          <include name="openBrowser"/>
+          <include name="screenShotFailure"/>
+          <include name="Auth"/>
+          <include name="cleanUp"/>
+        </methods>
+      </class> <!-- TestCases.TC01_AuthenticationTest -->
+    </classes>
+  </test> <!-- TAF_nopCommerceDemo_v8(failed) -->
+</suite> <!-- Failed suite [Default Suite] -->
