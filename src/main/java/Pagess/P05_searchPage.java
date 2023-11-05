@@ -24,11 +24,14 @@ public class P05_searchPage extends PageBase{
     private  By assertOnSearchFromBtn = By.cssSelector("h2[class=\"product-title\"] a");
 
 
+   private  By waitUl= By.cssSelector("ul[id=\"ui-id-1\"]");
 
-
-    public void searchFuncUsingSuggestList(String value) throws InterruptedException {
+    public void searchFuncUsingSuggestList(String value)  {
         enterTxt(driver.findElement(searchInp),value);
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
+
+        WebDriverWait wait = new WebDriverWait(driver , Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(waitUl)));
 
 
         List<WebElement> lis = driver.findElements(suggestList);
