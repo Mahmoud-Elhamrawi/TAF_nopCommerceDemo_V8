@@ -9,6 +9,9 @@
             <class name="TestCases.TC05_ContactUsTest"/>
             <class name="TestCases.TC07_changeCurrencyTest"/>
             <class name="TestCases.TC09_addToWishListTest"/>
+            <class name="TestCases.TC010_compareTwoProdTest"/>
+            <class name="TestCases.TC011_addToCartTest"/>
+
 
 
 

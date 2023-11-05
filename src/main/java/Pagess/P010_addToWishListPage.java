@@ -55,6 +55,10 @@ public class P010_addToWishListPage extends PageBase {
     }
 
 
+    public static class TC011_addToCartPage extends PageBase {
+        public TC011_addToCartPage(WebDriver driver) {
+            super(driver);
+        }
 
 
 
@@ -66,4 +70,6 @@ public class P010_addToWishListPage extends PageBase {
 
 
 
+
+    }
 }
