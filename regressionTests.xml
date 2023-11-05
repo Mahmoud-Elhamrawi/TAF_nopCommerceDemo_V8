@@ -7,6 +7,8 @@
             <class name="TestCases.TC01_AuthenticationTest" />
             <class name="TestCases.TC02_changePassTest" />
             <class name="TestCases.TC06_emailFriendTest" />
+            <class name="TestCases.TC08_addReviewTest" />
+
 
         </classes>
     </test>

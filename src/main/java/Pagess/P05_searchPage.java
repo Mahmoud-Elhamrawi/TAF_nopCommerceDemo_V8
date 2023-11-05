@@ -26,7 +26,7 @@ public class P05_searchPage extends PageBase{
 
    private  By waitUl= By.cssSelector("ul[id=\"ui-id-1\"]");
 
-    public void searchFuncUsingSuggestList(String value)  {
+    public void searchFuncUsingSuggestListFristItem(String value)  {
         enterTxt(driver.findElement(searchInp),value);
         //Thread.sleep(2000);
 
@@ -38,6 +38,25 @@ public class P05_searchPage extends PageBase{
         System.out.println(lis);
         clickEle(lis.get(0));
     }
+
+    public void searchFuncUsingSuggestListSecondItem(String value)  {
+        enterTxt(driver.findElement(searchInp),value);
+        //Thread.sleep(2000);
+
+        WebDriverWait wait = new WebDriverWait(driver , Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(waitUl)));
+
+
+        List<WebElement> lis = driver.findElements(suggestList);
+        System.out.println(lis);
+        clickEle(lis.get(1));
+    }
+
+
+
+
+
+
 
     public void searchFuncUsingBtn(String value) {
         enterTxt(driver.findElement(searchInp),value);

@@ -2,7 +2,6 @@ package TestCases;
 
 import Pagess.P010_addToWishListPage;
 import Pagess.P05_searchPage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -22,7 +21,7 @@ public class TC09_addToWishListTest extends TestBase{
     @Test(priority = 1)
     public void search()  {
         searchPage =new P05_searchPage(driver);
-        searchPage.searchFuncUsingSuggestList("app");
+        searchPage.searchFuncUsingSuggestListFristItem("app");
         softAssert.assertTrue(searchPage.auoSuggest().getText().contains("Apple MacBook Pro 13"));
         System.out.println(searchPage.auoSuggest().getText());
         softAssert.assertAll();

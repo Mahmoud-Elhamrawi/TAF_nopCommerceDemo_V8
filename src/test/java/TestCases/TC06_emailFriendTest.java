@@ -23,7 +23,7 @@ public class TC06_emailFriendTest extends TestBase{
         loginPage.loginProcess("tost@teml.net" ,"123456");
         //search
         searchPage =new P05_searchPage(driver);
-        searchPage.searchFuncUsingSuggestList("app");
+        searchPage.searchFuncUsingSuggestListFristItem("app");
         softAssert.assertTrue(searchPage.auoSuggest().getText().contains("Apple MacBook Pro 13"));
         System.out.println(searchPage.auoSuggest().getText());
         //email

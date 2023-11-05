@@ -8,6 +8,8 @@
             <class name="TestCases.TC03_SearchFromList"/>
             <class name="TestCases.TC05_ContactUsTest"/>
             <class name="TestCases.TC07_changeCurrencyTest"/>
+            <class name="TestCases.TC09_addToWishListTest"/>
+
 
 
         </classes>

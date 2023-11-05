@@ -26,7 +26,7 @@ public class TC08_addReviewTest extends TestBase{
         loginPage.loginProcess("mash@teml.net" ,"123456");
         //search from list
         searchPage =new P05_searchPage(driver);
-        searchPage.searchFuncUsingSuggestList("app");
+        searchPage.searchFuncUsingSuggestListFristItem("app");
         softAssert.assertTrue(searchPage.auoSuggest().getText().contains("Apple MacBook Pro 13"));
         System.out.println(searchPage.auoSuggest().getText());
         //addReview
