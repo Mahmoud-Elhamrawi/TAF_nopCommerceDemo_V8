@@ -43,8 +43,10 @@ public class P013_checkoutAsGuestPage extends PageBase{
    private  By assertSucess1 =By.cssSelector("div[class=\"section order-completed\"]  div[class=\"title\"] strong");
     private  By compeletOrderr = By.cssSelector("div[class=\"buttons\"] button[class=\"button-1 order-completed-continue-button\"]");
 
+    private  By orderDatails = By.linkText("Click here for order details.");
+    private By assrtTitleorder = By.cssSelector("div[class=\"page-title\"] h1");
 
-
+private By pdfInvic =By.linkText("PDF Invoice");
 
 
 
@@ -104,8 +106,20 @@ public class P013_checkoutAsGuestPage extends PageBase{
         clickEle(driver.findElement(compeletOrderr));
     }
 
+    public void goToDetails()
+    {
+        clickEle(driver.findElement(orderDatails));
+    }
 
+    public WebElement assertOrder()
+    {
 
+        return driver.findElement(assrtTitleorder);
+    }
 
+   public void DownloadInvice()
+   {
+       clickEle(driver.findElement(pdfInvic));
+   }
 
 }

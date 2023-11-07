@@ -63,7 +63,7 @@ public class TC012_checkoutAsGusestTest extends  TestBase{
 
 
     }
-    @Test(priority = 3 , dependsOnMethods = "addToCrt")
+    @Test(priority = 3 )
     public void checkOutOrder() throws InterruptedException {
 
         checkoutAsGuestPage = new P013_checkoutAsGuestPage(driver);
@@ -102,10 +102,20 @@ public class TC012_checkoutAsGusestTest extends  TestBase{
         softAssert.assertTrue(checkoutAsGuestPage.assertSucess1().getText().contains("successfully processed"));
         System.out.println(checkoutAsGuestPage.assertSucess1().getText());
 
-        checkoutAsGuestPage.compeleteorder();
+
+        checkoutAsGuestPage.goToDetails();
         Thread.sleep(1000);
-        softAssert.assertTrue(driver.getCurrentUrl().contains("https://demo.nopcommerce.com/"));
-        System.out.println(driver.getCurrentUrl());
+        softAssert.assertTrue(driver.getCurrentUrl().contains("https://demo.nopcommerce.com/orderdetails/1035"));
+        softAssert.assertTrue(checkoutAsGuestPage.assertOrder().getText().contains("information"));
+        checkoutAsGuestPage.DownloadInvice();
+
+
+
+
+//        checkoutAsGuestPage.compeleteorder();
+//        Thread.sleep(1000);
+//        softAssert.assertTrue(driver.getCurrentUrl().contains("https://demo.nopcommerce.com/"));
+//        System.out.println(driver.getCurrentUrl());
 
 
         softAssert.assertAll();
