@@ -33,6 +33,11 @@ public class P01_RegisterPage extends  PageBase{
         clickEle(driver.findElement(regBtn));
     }
 
+    //with use DDT//
+
+
+
+
     public WebElement assertContent1()
     {
         return driver.findElement(assert1);

@@ -8,6 +8,7 @@
             <class name="TestCases.TC02_changePassTest" />
             <class name="TestCases.TC06_emailFriendTest" />
             <class name="TestCases.TC08_addReviewTest" />
+            <class name="TestCases.TC012_checkoutAsGusestTest" />
 
 
         </classes>

@@ -3,9 +3,12 @@ package TestCases;
 import Pagess.P012_addToCartPAge;
 import Pagess.P013_checkoutAsGuestPage;
 import Pagess.P05_searchPage;
+import com.github.hemanthsridhar.CSVUtils;
+import com.github.hemanthsridhar.lib.ExtUtils;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -63,8 +66,15 @@ public class TC012_checkoutAsGusestTest extends  TestBase{
 
 
     }
-    @Test(priority = 3 )
-    public void checkOutOrder() throws InterruptedException {
+    @DataProvider(name ="userCard")
+    public static Object[][]providerUser() throws Exception {
+        String path ="./src\\test\\resources\\checkoutData.csv";
+        ExtUtils ext = new CSVUtils(path , true);
+        return  ext.parseData();
+
+    }
+    @Test(priority = 3 , dataProvider = "userCard")
+    public void checkOutOrder(String fisrtName , String lastName ,String email , String city , String address ,String zipcode , String phone) throws InterruptedException {
 
         checkoutAsGuestPage = new P013_checkoutAsGuestPage(driver);
 
@@ -74,7 +84,7 @@ public class TC012_checkoutAsGusestTest extends  TestBase{
         checkoutAsGuestPage.guestCheckBtnele();
         softAssert.assertTrue(driver.getCurrentUrl().contains("https://demo.nopcommerce.com/onepagecheckout#opc-billing"));
         System.out.println(driver.getCurrentUrl());
-        checkoutAsGuestPage.fillBillingAddress("mahmoud","ali","mah@gmail.com","cairo","naisr city","25252","01278385814");
+        checkoutAsGuestPage.fillBillingAddress(fisrtName,lastName,email,city,address,zipcode,phone);
         Thread.sleep(1000);
         System.out.println(driver.getCurrentUrl());
         checkoutAsGuestPage.methodShip();

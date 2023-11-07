@@ -4,6 +4,7 @@ import Pagess.HomePage;
 import Pagess.P01_RegisterPage;
 import Pagess.P02_LoginPage;
 import Pagess.P03_LogOutPage;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -16,15 +17,29 @@ public class TC01_AuthenticationTest extends TestBase{
     P03_LogOutPage logOutPage ;
     SoftAssert softAssert = new SoftAssert();
 
-    @Test
-    public void Auth()
+    @DataProvider(name="userDataRegister")
+    public static Object[][] provider()
+    {
+        return new Object[][]
+                {
+                        {"auto1","selenium1","selenium11@auto.com","123456","123456"},
+                        {"auto2","selenium2","selenium22@auto.com","123456","123456"},
+                        {"auto3","selenium3","selenium33@auto.com","123456","123456"},
+                        {"auto4","selenium4","selenium44@auto.com","123456","123456"}
+
+                };
+    }
+
+    @Test(dataProvider = "userDataRegister")
+    public void Auth(String fn , String ln ,String em ,String pass, String cpass)
     {
         //register
         homePage = new HomePage(driver);
         homePage.clickOnRegisterLink();
 
         registerPage = new P01_RegisterPage(driver);
-        registerPage.registerProcess("moaaz","mahmoud","moaz@test3.com","123456","123456");
+
+        registerPage.registerProcess(fn,ln,em,pass,cpass);
 
         softAssert.assertTrue(registerPage.assertContent1().getText().contains("Your registration completed"));
         System.out.println(registerPage.assertContent1().getText());
@@ -35,7 +50,7 @@ public class TC01_AuthenticationTest extends TestBase{
         loginPage = new P02_LoginPage(driver);
         homePage.clickOnLoginLink();
 
-        loginPage.loginProcess("moaz@test3.com" ,"123456");
+        loginPage.loginProcess(em ,pass);
 
        //logout
 
