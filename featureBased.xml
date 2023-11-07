@@ -11,10 +11,6 @@
             <class name="TestCases.TC09_addToWishListTest"/>
             <class name="TestCases.TC010_compareTwoProdTest"/>
             <class name="TestCases.TC011_addToCartTest"/>
-
-
-
-
         </classes>
     </test>
 </suite>

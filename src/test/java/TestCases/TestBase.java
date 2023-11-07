@@ -18,7 +18,7 @@ public class TestBase {
 
     @BeforeClass
     @Parameters({"browser"})
-    public void openBrowser(@Optional("chrome") String browserName) {
+    public void openBrowser(@Optional("edge") String browserName) {
         if (browserName.equalsIgnoreCase("chrome"))
         {
             driver = new ChromeDriver();

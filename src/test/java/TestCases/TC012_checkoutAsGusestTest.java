@@ -48,51 +48,67 @@ public class TC012_checkoutAsGusestTest extends  TestBase{
         softAssert.assertTrue(addToCartPAge.assertTitle().getText().contains("Shopping cart"));
         softAssert.assertTrue(addToCartPAge.assertContent().getText().contains("Apple MacBook Pro 13-inch"));
 
+        wait.until(ExpectedConditions.visibilityOf(addToCartPAge.cartBodyPage()));
+
+        js.executeScript("scrollBy(0,600)");
+
+        WebDriverWait wait2 =  new WebDriverWait(driver , Duration.ofSeconds(10));
+        wait2.until(ExpectedConditions.visibilityOf(addToCartPAge.footer()));
+
+        addToCartPAge.agreeCh1();
+        addToCartPAge.agreeCh2();
+        softAssert.assertTrue(driver.getCurrentUrl().contains("https://demo.nopcommerce.com/login/checkoutasguest?returnUrl=%2Fcart"));
+
+        System.out.println(driver.getCurrentUrl());
+
 
     }
     @Test(priority = 3 , dependsOnMethods = "addToCrt")
-    public void checkOutOrder()
-    {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("scrollBy(0,600)");
+    public void checkOutOrder() throws InterruptedException {
 
         checkoutAsGuestPage = new P013_checkoutAsGuestPage(driver);
 
-        WebDriverWait wait =  new WebDriverWait(driver , Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOf(checkoutAsGuestPage.footer()));
-
-        checkoutAsGuestPage.agreeCh1();
-        checkoutAsGuestPage.agreeCh2();
-        softAssert.assertTrue(driver.getCurrentUrl().contains("https://demo.nopcommerce.com/login/checkoutasguest?returnUrl=%2Fcart"));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("scrollBy(0,500)");
 
         checkoutAsGuestPage.guestCheckBtnele();
         softAssert.assertTrue(driver.getCurrentUrl().contains("https://demo.nopcommerce.com/onepagecheckout#opc-billing"));
-
+        System.out.println(driver.getCurrentUrl());
         checkoutAsGuestPage.fillBillingAddress("mahmoud","ali","mah@gmail.com","cairo","naisr city","25252","01278385814");
-
+        Thread.sleep(1000);
+        System.out.println(driver.getCurrentUrl());
         checkoutAsGuestPage.methodShip();
+        Thread.sleep(1000);
         softAssert.assertTrue(driver.getCurrentUrl().contains("https://demo.nopcommerce.com/onepagecheckout#opc-payment_method"));
+        System.out.println(driver.getCurrentUrl());
 
         checkoutAsGuestPage.methodPayment();
-
+        Thread.sleep(1000);
         softAssert.assertTrue(driver.getCurrentUrl().contains("https://demo.nopcommerce.com/onepagecheckout#opc-payment_info"));
+        System.out.println(driver.getCurrentUrl());
 
         checkoutAsGuestPage.infoPayment();
+        Thread.sleep(2000);
         softAssert.assertTrue(driver.getCurrentUrl().contains("https://demo.nopcommerce.com/onepagecheckout#opc-confirm_order"));
-
-
+        System.out.println(driver.getCurrentUrl());
         softAssert.assertTrue(checkoutAsGuestPage.assretNameShipping().getText().contains("mahmoud"));
 
-        checkoutAsGuestPage.confirm();
+
+        js.executeScript("scrollBy(0,300)");
+        checkoutAsGuestPage.confirmoorder();
+        Thread.sleep(1500);
         softAssert.assertTrue(driver.getCurrentUrl().contains("https://demo.nopcommerce.com/checkout/completed"));
-
+        System.out.println(driver.getCurrentUrl());
         softAssert.assertTrue(checkoutAsGuestPage.assertSucess1().getText().contains("successfully processed"));
+        System.out.println(checkoutAsGuestPage.assertSucess1().getText());
 
-    checkoutAsGuestPage.compelete();
-    softAssert.assertTrue(driver.getCurrentUrl().contains("https://demo.nopcommerce.com/"));
+        checkoutAsGuestPage.compeleteorder();
+        Thread.sleep(1000);
+        softAssert.assertTrue(driver.getCurrentUrl().contains("https://demo.nopcommerce.com/"));
+        System.out.println(driver.getCurrentUrl());
 
 
-
+        softAssert.assertAll();
 
     }
 
