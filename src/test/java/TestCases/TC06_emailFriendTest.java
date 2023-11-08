@@ -20,7 +20,7 @@ public class TC06_emailFriendTest extends TestBase{
         loginPage = new P02_LoginPage(driver);
         homePage = new HomePage(driver);
         homePage.clickOnLoginLink();
-        loginPage.loginProcess("tost@teml.net" ,"123456");
+        loginPage.loginProcess("selenium113@auto.com" ,"1234567");
         //search
         searchPage =new P05_searchPage(driver);
         searchPage.searchFuncUsingSuggestListFristItem("app");

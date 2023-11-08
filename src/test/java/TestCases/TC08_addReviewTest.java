@@ -23,7 +23,7 @@ public class TC08_addReviewTest extends TestBase{
         homePage = new HomePage(driver);
         homePage.clickOnLoginLink();
         loginPage = new P02_LoginPage(driver);
-        loginPage.loginProcess("mash@teml.net" ,"123456");
+        loginPage.loginProcess("selenium113@auto.com" ,"1234567");
         //search from list
         searchPage =new P05_searchPage(driver);
         searchPage.searchFuncUsingSuggestListFristItem("app");

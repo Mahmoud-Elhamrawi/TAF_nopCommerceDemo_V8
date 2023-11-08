@@ -37,7 +37,7 @@ public class TC09_addToWishListTest extends TestBase{
         addToWishListPage =new P010_addToWishListPage(driver);
         addToWishListPage.addToWishList();
 
-        WebDriverWait wait = new WebDriverWait(driver , Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver , Duration.ofSeconds(25));
         wait.until(ExpectedConditions.invisibilityOf((addToWishListPage.close1())));
 
         addToWishListPage.goToWishList();

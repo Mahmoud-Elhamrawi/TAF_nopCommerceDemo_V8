@@ -34,7 +34,7 @@ public class TC010_compareTwoProdTest extends TestBase{
         comparePage.clickBtnCompare();
 
         //wait
-        WebDriverWait wait =new WebDriverWait(driver , Duration.ofSeconds(20));
+        WebDriverWait wait =new WebDriverWait(driver , Duration.ofSeconds(35));
         wait.until(ExpectedConditions.invisibilityOf((comparePage.notification())));
 
         //search again
@@ -46,7 +46,7 @@ public class TC010_compareTwoProdTest extends TestBase{
         comparePage.clickBtnCompare();
 
         //wait
-        WebDriverWait wait1 =new WebDriverWait(driver , Duration.ofSeconds(20));
+        WebDriverWait wait1 =new WebDriverWait(driver , Duration.ofSeconds(35));
         wait1.until(ExpectedConditions.invisibilityOf((comparePage.notification())));
 
         softAssert.assertAll();
@@ -57,11 +57,11 @@ public class TC010_compareTwoProdTest extends TestBase{
     public void goToCompareList()
     {
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("scrollBy(0,2500)");
+        js.executeScript("scrollBy(0,2550)");
         comparePage.goToCompareList();
         js.executeScript("scrollBy(0,500)");
         softAssert.assertTrue(driver.getCurrentUrl().contains("/compareproducts"));
-        WebDriverWait wait1 =new WebDriverWait(driver , Duration.ofSeconds(20));
+        WebDriverWait wait1 =new WebDriverWait(driver , Duration.ofSeconds(40));
         wait1.until(ExpectedConditions.visibilityOf((comparePage.visibleBox())));
 
         softAssert.assertEquals(comparePage.assert11().getText() , "Apple iCam");
@@ -69,7 +69,7 @@ public class TC010_compareTwoProdTest extends TestBase{
 
 
 
-        //expect  //td //a[@href="/apple-icam" and text()="Apple iCam"]
+
 
 
         softAssert.assertAll();

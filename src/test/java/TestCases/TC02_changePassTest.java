@@ -30,7 +30,7 @@ public class TC02_changePassTest extends TestBase{
         loginPage = new P02_LoginPage(driver);
         homePage.clickOnLoginLink();
 
-        loginPage.loginProcess("moaz@test3.com" ,"12345678");
+        loginPage.loginProcess("selenium113@auto.com" ,"123456");
 
         //change password
          changePassPage = new P04_changePassPage(driver);
@@ -40,7 +40,7 @@ public class TC02_changePassTest extends TestBase{
          changePassPage.goToChangePass();
          softAssert.assertTrue(changePassPage.assert12().getText().contains("My account - Change password"));
 
-        changePassPage.changePass("12345678","123456789");
+        changePassPage.changePass("123456","1234567");
         softAssert.assertTrue(changePassPage.assert13().getText().contains("Password was changed"));
         String BgColor = changePassPage.assert14().getCssValue("background-color");
         BgColor = Color.fromString(BgColor).asHex();

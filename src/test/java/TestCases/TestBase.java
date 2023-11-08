@@ -20,6 +20,8 @@ public class TestBase {
     protected WebDriver driver;
 
 
+
+    //download files
     public static String downloadPath = System.getProperty("user.dir") + "\\Downloads";
 
     public static ChromeOptions chromeOption() {
@@ -46,6 +48,12 @@ public class TestBase {
         }else if (browserName.equalsIgnoreCase("edge"))
         {
             driver = new EdgeDriver();
+        } else if (browserName.equalsIgnoreCase("chrome-headless"))
+        {
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--headless");
+            options.addArguments("--window-size=1990,1880");
+            driver = new ChromeDriver(options);
         }
 
 
